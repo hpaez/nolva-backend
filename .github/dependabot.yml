@@ -13,6 +13,12 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # typescript-eslint supports TypeScript < 6.1 only. Remove this once a
+      # typescript-eslint release accepts newer versions (check its
+      # peerDependencies), then update both together.
+      - dependency-name: typescript
+        versions: [">=6.1.0"]
     groups:
       # Tooling moves together; runtime dependencies (hono) get their own PRs.
       dev-dependencies:
