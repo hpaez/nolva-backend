@@ -1,0 +1,43 @@
+{
+  "name": "nolva-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nolva's API: accounts, sync and file storage on Cloudflare Workers, D1 and R2.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "cf-typegen": "wrangler types",
+    "postinstall": "wrangler types",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm test"
+  },
+  "dependencies": {
+    "hono": "^4.13.19"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.9.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^4.1.12",
+    "wrangler": "^4.166.0"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "workerd": true
+  }
+}

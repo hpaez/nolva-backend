@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nolva-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-20",
+  "observability": {
+    "enabled": true,
+  },
+  // Exposes the deployed version's id and tag to /v1/health.
+  "version_metadata": {
+    "binding": "CF_VERSION_METADATA",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nolva-production",
+      "database_id": "48d0bc3c-436d-4c3b-a8ea-2cad4e26e1a7",
+      "migrations_dir": "migrations",
+    },
+  ],
+}
